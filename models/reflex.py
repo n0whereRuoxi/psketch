@@ -1,4 +1,4 @@
-import net
+from . import net
 
 import numpy as np
 import tensorflow as tf
@@ -18,7 +18,7 @@ class ReflexModel(object):
         self.experiences = []
         self.world = None
 
-    def prepare(self, world):
+    def prepare(self, world, _):
         assert self.world is None
         self.world = world
         self.n_actions = world.n_actions + 1

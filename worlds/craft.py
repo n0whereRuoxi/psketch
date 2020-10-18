@@ -1,4 +1,4 @@
-from cookbook import Cookbook
+from .cookbook import Cookbook
 from misc import array
 
 import curses
@@ -146,7 +146,8 @@ class CraftWorld(object):
                             elif state.dir == DOWN:
                                 ch1 = "@"
                                 ch2 = "v"
-                            color = curses.color_pair(mstate.arg or 0)
+                            # color = curses.color_pair(mstate.arg or 0)
+                            color = curses.color_pair(0)
                         elif thing == self.cookbook.index["boundary"]:
                             ch1 = ch2 = curses.ACS_BOARD
                             color = curses.color_pair(10 + thing)

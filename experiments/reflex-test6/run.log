@@ -1,0 +1,20 @@
+2020-10-16 17:42:56,268 INFO     BEGIN
+2020-10-16 17:42:56,269 INFO     struct {
+    name: 'reflex-test6'
+    recipes: 'resources/craft/recipes.yaml'
+    world:
+        name: 'CraftWorld'
+    model:
+        name: 'ReflexModel'
+        use_args: False
+        featurize_plan: True
+        max_subtask_timesteps: 15
+        baseline: 'state'
+    trainer:
+        name: 'CurriculumTrainer'
+        use_curriculum: False
+        improvement_threshold: 0.8
+        hints: 'resources/craft/hints.yaml'
+        max_timesteps: 100
+    experiment_dir: 'experiments/reflex-test6'
+}

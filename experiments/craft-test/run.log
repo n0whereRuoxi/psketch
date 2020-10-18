@@ -1,0 +1,47 @@
+2020-10-16 14:30:44,593 INFO     BEGIN
+2020-10-16 14:30:44,593 INFO     struct {
+    name: 'craft-test'
+    recipes: 'resources/craft/recipes.yaml'
+    world:
+        name: 'CraftWorld'
+    model:
+        name: 'ModularACModel'
+        use_args: False
+        featurize_plan: True
+        max_subtask_timesteps: 15
+        baseline: 'state'
+    trainer:
+        name: 'CurriculumTrainer'
+        use_curriculum: True
+        improvement_threshold: 0.8
+        hints: 'resources/craft/hints.yaml'
+        max_timesteps: 100
+    experiment_dir: 'experiments/craft-test'
+}
+2020-10-16 14:30:44,647 WARNING  From /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+2020-10-16 14:30:44,655 WARNING  From /Users/ruoxili/Documents/NRL/psketch/models/net.py:13: UniformUnitScaling.__init__ (from tensorflow.python.ops.init_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.initializers.variance_scaling instead with distribution=uniform to get equivalent behavior.
+2020-10-16 14:30:44,825 WARNING  From /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/ops/math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+2020-10-16 14:31:26,987 ERROR    Uncaught exception: unsupported operand type(s) for +: 'dict_values' and 'dict_values'
+NoneType: None
+2020-10-16 14:31:26,990 ERROR    Traceback (most recent call last):
+
+  File "main.py", line 50, in <module>
+    main()
+
+  File "main.py", line 22, in main
+    trainer.train(model, world)
+
+  File "/Users/ruoxili/Documents/NRL/psketch/trainers/curriculum.py", line 113, in train
+    model.prepare(world, self)
+
+  File "/Users/ruoxili/Documents/NRL/psketch/models/modular_ac.py", line 165, in prepare
+    for module in actors.values() + critics.values():
+
+TypeError: unsupported operand type(s) for +: 'dict_values' and 'dict_values'
+NoneType: None

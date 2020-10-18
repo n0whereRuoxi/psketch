@@ -1,0 +1,100 @@
+2020-10-18 17:10:08,111 INFO     BEGIN
+2020-10-18 17:10:08,111 INFO     struct {
+    name: 'reflex-test9'
+    recipes: 'resources/craft/recipes.yaml'
+    world:
+        name: 'CraftWorld'
+    model:
+        name: 'ReflexModel'
+        use_args: False
+        featurize_plan: True
+        max_subtask_timesteps: 15
+        baseline: 'state'
+    trainer:
+        name: 'CurriculumTrainer'
+        use_curriculum: False
+        improvement_threshold: 0.8
+        hints: 'resources/craft/hints.yaml'
+        max_timesteps: 100
+    experiment_dir: 'experiments/reflex-test9'
+}
+2020-10-18 17:10:08,195 WARNING  From /Users/ruoxili/Documents/NRL/psketch/models/net.py:29: UniformUnitScaling.__init__ (from tensorflow.python.ops.init_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.initializers.variance_scaling instead with distribution=uniform to get equivalent behavior.
+2020-10-18 17:10:08,208 WARNING  From /Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+2020-10-18 17:10:08,254 ERROR    Uncaught exception: Dimension 1 in both shapes must be equal, but are 128 and 1076. Shapes are [?,128] and [?,1076].
+	From merging shape 0 with other shapes. for 'now/concat/concat_dim' (op: 'Pack') with input shapes: [?,128], [?,1076].
+NoneType: None
+2020-10-18 17:10:08,271 ERROR    Traceback (most recent call last):
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 1659, in _create_c_op
+    c_op = c_api.TF_FinishOperation(op_desc)
+
+tensorflow.python.framework.errors_impl.InvalidArgumentError: Dimension 1 in both shapes must be equal, but are 128 and 1076. Shapes are [?,128] and [?,1076].
+	From merging shape 0 with other shapes. for 'now/concat/concat_dim' (op: 'Pack') with input shapes: [?,128], [?,1076].
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "main.py", line 51, in <module>
+    main()
+
+  File "main.py", line 22, in main
+    trainer.train(model, world)
+
+  File "/Users/ruoxili/Documents/NRL/psketch/trainers/curriculum.py", line 113, in train
+    model.prepare(world, self)
+
+  File "/Users/ruoxili/Documents/NRL/psketch/models/reflex.py", line 35, in prepare
+    t_features, t_plan, t_scores, v_weights = predictor("now")
+
+  File "/Users/ruoxili/Documents/NRL/psketch/models/reflex.py", line 31, in predictor
+    t_comb = tf.concat(1, (t_embed_plan, t_features))
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/util/dispatch.py", line 180, in wrapper
+    return target(*args, **kwargs)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/ops/array_ops.py", line 1253, in concat
+    dtype=dtypes.int32).get_shape().assert_is_compatible_with(
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 1039, in convert_to_tensor
+    return convert_to_tensor_v2(value, dtype, preferred_dtype, name)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 1097, in convert_to_tensor_v2
+    as_ref=False)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 1175, in internal_convert_to_tensor
+    ret = conversion_func(value, dtype=dtype, name=name, as_ref=as_ref)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/ops/array_ops.py", line 1102, in _autopacking_conversion_function
+    return _autopacking_helper(v, dtype, name or "packed")
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/ops/array_ops.py", line 1054, in _autopacking_helper
+    return gen_array_ops.pack(elems_as_tensors, name=scope)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/ops/gen_array_ops.py", line 5448, in pack
+    "Pack", values=values, axis=axis, name=name)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/op_def_library.py", line 788, in _apply_op_helper
+    op_def=op_def)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/util/deprecation.py", line 507, in new_func
+    return func(*args, **kwargs)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 3300, in create_op
+    op_def=op_def)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 1823, in __init__
+    control_input_ops)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/site-packages/tensorflow/python/framework/ops.py", line 1662, in _create_c_op
+    raise ValueError(str(e))
+
+ValueError: Dimension 1 in both shapes must be equal, but are 128 and 1076. Shapes are [?,128] and [?,1076].
+	From merging shape 0 with other shapes. for 'now/concat/concat_dim' (op: 'Pack') with input shapes: [?,128], [?,1076].
+NoneType: None

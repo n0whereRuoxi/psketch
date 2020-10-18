@@ -148,6 +148,9 @@ class CurriculumTrainer(object):
                         i_iter += N_BATCH
                         transitions, reward = self.do_rollout(model, world, 
                                 possible_tasks, task_probs)
+
+                        print(transitions[0])
+                        world.visualize(transitions[0])
                         for t in transitions:
                             tr = sum(tt.r for tt in t)
                             task_rewards[t[0].m1.task] += tr

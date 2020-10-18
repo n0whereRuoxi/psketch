@@ -1,0 +1,29 @@
+2020-10-16 15:05:36,559 INFO     BEGIN
+2020-10-16 15:05:36,560 INFO     struct {
+    name: 'reflex-test3'
+    recipes: 'resources/craft/recipes.yaml'
+    world:
+        name: 'CraftWorld'
+    model:
+        name: 'ReflexModel'
+        use_args: False
+        featurize_plan: True
+        max_subtask_timesteps: 15
+        baseline: 'state'
+    experiment_dir: 'experiments/reflex-test3'
+}
+2020-10-16 15:05:36,565 ERROR    Uncaught exception: 'Struct' object has no attribute 'trainer'
+NoneType: None
+2020-10-16 15:05:36,566 ERROR    Traceback (most recent call last):
+
+  File "main.py", line 50, in <module>
+    main()
+
+  File "main.py", line 21, in main
+    trainer = trainers.load(config)
+
+  File "/Users/ruoxili/Documents/NRL/psketch/trainers/__init__.py", line 4, in load
+    cls_name = config.trainer.name
+
+AttributeError: 'Struct' object has no attribute 'trainer'
+NoneType: None

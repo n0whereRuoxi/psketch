@@ -1,0 +1,45 @@
+2020-10-18 18:05:39,818 INFO     BEGIN
+2020-10-18 18:05:39,819 INFO     struct {
+    name: 'keyboard-test6'
+    recipes: 'resources/craft/recipes.yaml'
+    world:
+        name: 'CraftWorld'
+    model:
+        name: 'KeyboardModel'
+        use_args: False
+        featurize_plan: True
+        max_subtask_timesteps: 15
+        baseline: 'state'
+    trainer:
+        name: 'CurriculumTrainer'
+        use_curriculum: False
+        improvement_threshold: 0.8
+        hints: 'resources/craft/hints.yaml'
+        max_timesteps: 100
+    experiment_dir: 'experiments/keyboard-test6'
+}
+2020-10-18 18:05:39,834 INFO     [max steps] 100
+2020-10-18 18:05:44,404 ERROR    Uncaught exception: 'NoneType' object has no attribute 'arg'
+NoneType: None
+2020-10-18 18:05:44,406 ERROR    Traceback (most recent call last):
+
+  File "main.py", line 50, in <module>
+    main()
+
+  File "main.py", line 22, in main
+    trainer.train(model, world)
+
+  File "/Users/ruoxili/Documents/NRL/psketch/trainers/curriculum.py", line 153, in train
+    world.visualize(transitions[0])
+
+  File "/Users/ruoxili/Documents/NRL/psketch/worlds/craft.py", line 163, in visualize
+    curses.wrapper(_visualize)
+
+  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/curses/__init__.py", line 94, in wrapper
+    return func(stdscr, *args, **kwds)
+
+  File "/Users/ruoxili/Documents/NRL/psketch/worlds/craft.py", line 149, in _visualize
+    color = curses.color_pair(mstate.arg or 0)
+
+AttributeError: 'NoneType' object has no attribute 'arg'
+NoneType: None

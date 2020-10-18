@@ -1,0 +1,40 @@
+2020-10-16 14:57:06,091 INFO     BEGIN
+2020-10-16 14:57:06,091 INFO     struct {
+    name: 'reflex-test2'
+    recipes: 'resources/craft/recipes.yaml'
+    world:
+        name: 'CraftWorld'
+    model:
+        name: 'Reflex'
+        use_args: False
+        featurize_plan: True
+        max_subtask_timesteps: 15
+        baseline: 'state'
+    experiment_dir: 'experiments/reflex-test2'
+}
+2020-10-16 14:57:06,102 ERROR    Uncaught exception: No such model: Reflex
+NoneType: None
+2020-10-16 14:57:06,103 ERROR    Traceback (most recent call last):
+
+  File "/Users/ruoxili/Documents/NRL/psketch/models/__init__.py", line 10, in load
+    cls = globals()[cls_name]
+
+KeyError: 'Reflex'
+
+
+During handling of the above exception, another exception occurred:
+
+
+Traceback (most recent call last):
+
+  File "main.py", line 50, in <module>
+    main()
+
+  File "main.py", line 20, in main
+    model = models.load(config)
+
+  File "/Users/ruoxili/Documents/NRL/psketch/models/__init__.py", line 13, in load
+    raise Exception("No such model: {}".format(cls_name))
+
+Exception: No such model: Reflex
+NoneType: None

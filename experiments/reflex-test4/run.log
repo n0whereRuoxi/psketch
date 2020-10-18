@@ -1,0 +1,35 @@
+2020-10-16 17:21:30,470 INFO     BEGIN
+2020-10-16 17:21:30,470 INFO     struct {
+    name: 'reflex-test4'
+    recipes: 'resources/craft/recipes.yaml'
+    world:
+        name: 'CraftWorld'
+    model:
+        name: 'ReflexModel'
+        use_args: False
+        featurize_plan: True
+        max_subtask_timesteps: 15
+        baseline: 'state'
+    trainer:
+        name: 'CurriculumTrainer'
+        use_curriculum: False
+        improvement_threshold: 0.8
+        hints: 'resources/craft/hints.yaml'
+        max_timesteps: 100
+    experiment_dir: 'experiments/reflex-test4'
+}
+2020-10-16 17:21:30,499 ERROR    Uncaught exception: prepare() takes 2 positional arguments but 3 were given
+NoneType: None
+2020-10-16 17:21:30,500 ERROR    Traceback (most recent call last):
+
+  File "main.py", line 50, in <module>
+    main()
+
+  File "main.py", line 22, in main
+    trainer.train(model, world)
+
+  File "/Users/ruoxili/Documents/NRL/psketch/trainers/curriculum.py", line 113, in train
+    model.prepare(world, self)
+
+TypeError: prepare() takes 2 positional arguments but 3 were given
+NoneType: None
